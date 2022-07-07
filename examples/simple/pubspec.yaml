@@ -1,0 +1,31 @@
+name: example
+description: Flutter Download Manager Example
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.5 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  isolated_download_manager: 
+    path: ../../
+    # git:
+    #   url: https://github.com/starkdmi/download_manager
+    #   ref: main
+
+  flutter_download_manager:
+    path: /Users/starkdmi/Code/Languages/Dart/download_manager_flutter
+    # git:
+    #   url: https://github.com/starkdmi/flutter_download_manager
+    #   ref: main
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
