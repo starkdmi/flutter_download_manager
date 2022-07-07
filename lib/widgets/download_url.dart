@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_download_manager/types/download_state.dart';
 import 'package:isolated_download_manager/download_manager.dart';
+
 part 'package:flutter_download_manager/types/download_controller.dart';
 
 /// Builder function for each state of file downloading
 /// [DownloadRequest] stored and controlled internally, by providing the [DownloadWidgetController] interface
 class DownloadUrlWidget extends StatefulWidget {
-  const DownloadUrlWidget({ super.key, required this.builder, required this.url, this.path, this.manager }) : super();
+  const DownloadUrlWidget({ super.key, required this.builder, required this.url, this.path, this.controller, this.manager }) : super();
   
   final Widget Function(
     BuildContext context, 
@@ -20,6 +21,7 @@ class DownloadUrlWidget extends StatefulWidget {
   final String url;
   final String? path;
   final DownloadManager? manager;
+  final DownloadWidgetController? controller;
   
   @override
   State<DownloadUrlWidget> createState() => _DownloadUrlWidgetState();
@@ -34,12 +36,13 @@ class _DownloadUrlWidgetState extends State<DownloadUrlWidget> {
   void initState() {
     super.initState();
     manager = widget.manager ?? DownloadManager.instance;
-    controller = DownloadWidgetController._(
-      download: _download,
-      cancel: _cancel,
-      resume: _resume,
-      pause: _pause,
-    );
+
+    controller = widget.controller ?? DownloadWidgetController();
+    controller._download = _download;
+    controller._cancel = _cancel;
+    controller._resume = _resume;
+    controller._pause = _pause;
+    controller._reset = _reset;
   }
   
   @override
@@ -85,4 +88,8 @@ class _DownloadUrlWidgetState extends State<DownloadUrlWidget> {
   void _pause() => request?.pause();
   void _resume() => request?.resume();
   void _cancel() => request?.cancel();
+  void _reset() {
+    _cancel();
+    setState(() => request = null);
+  }
 }

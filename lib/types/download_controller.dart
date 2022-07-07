@@ -1,22 +1,20 @@
 part of 'package:flutter_download_manager/widgets/download_url.dart';
 
 class DownloadWidgetController {
-  DownloadWidgetController._({
-    required void Function() download,
-    required void Function() cancel,
-    required void Function() resume,
-    required void Function() pause,
-  }) : _download = download, _cancel = cancel, _resume = resume, _pause = pause;
+  DownloadWidgetController();
+  
+  void Function()? _download;
+  void download() { _download?.call(); }
 
-  final void Function() _download;
-  void download() { _download(); }
+  void Function()? _pause;
+  void pause() { _pause?.call(); }
 
-  final void Function() _pause;
-  void pause() { _pause(); }
+  void Function()? _resume;
+  void resume() { _resume?.call(); }
 
-  final void Function() _resume;
-  void resume() { _resume(); }
+  void Function()? _cancel;
+  void cancel() { _cancel?.call(); }
 
-  final void Function() _cancel;
-  void cancel() { _cancel(); }
+  void Function()? _reset;
+  void reset() { _reset?.call(); }
 }
