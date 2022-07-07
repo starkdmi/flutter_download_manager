@@ -6,9 +6,9 @@ class Globals {
   Globals._();
   static final Globals instance = Globals._();
 
-  static int isolates = 2;
+  static int isolates = 3;
   static String directory = "/tmp/downloads";
-  static Map<String ,String> links = {
+  static Map<String, String> links = {
     "Dart": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.17.5/sdk/dartsdk-macos-arm64-release.zip",
     "Golang": "https://golang.org/dl/go1.17.3.src.tar.gz",
     "Python": "https://www.python.org/ftp/python/3.10.5/python-3.10.5-macos11.pkg",

@@ -43,7 +43,7 @@ class Setup extends StatelessWidget {
             );
           }),
           TextButton(
-            onPressed: () => Navigator.of(context).pushNamed("/home"), 
+            onPressed: () => Navigator.of(context).pushNamed("/list"), 
             child: const Text("Let's go")
           )
         ]

@@ -18,12 +18,11 @@ class DemoApp extends StatelessWidget {
       title: "Download Manager",
       theme: ThemeData(
         primarySwatch: Colors.red,
-        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.red.shade400) 
       ),
       initialRoute: "/",
       routes: {
         "/": (context) => const Setup(),
-        "/home": (context) => const DownloadList(),
+        "/list": (context) => const DownloadList(),
       },
     );
   }

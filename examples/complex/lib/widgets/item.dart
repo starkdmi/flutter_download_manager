@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_download_manager_example/screens/list.dart';
 import 'package:flutter_download_manager_example/widgets/card.dart';
 import 'package:flutter_download_manager_example/widgets/button.dart';
 import 'package:flutter_download_manager/download_manager_flutter.dart';
@@ -30,7 +31,7 @@ class _DownloadItemState extends State<DownloadItem> {
             return CardWidget(
               name: widget.name, 
               state: state, 
-              buttonRight: ButtonWidget(onPressed: _download, icon: Icons.downloading_rounded) // download_rounded
+              buttonRight: ButtonWidget(onPressed: _download, icon: Icons.downloading_rounded)
             );
           case DownloadWidgetState.queued:
             return CardWidget(
@@ -39,18 +40,18 @@ class _DownloadItemState extends State<DownloadItem> {
               buttonLeft: ButtonWidget(onPressed: _cancel, icon: Icons.close_rounded),
             );
           case DownloadWidgetState.failed:
-            // showErrorBanner(context, error);
+            _showErrorBanner(error);
             return CardWidget(
               name: widget.name, 
               state: state, 
-              buttonRight: ButtonWidget(onPressed: _download, icon: Icons.replay_rounded) // sync_rounded
+              buttonRight: ButtonWidget(onPressed: _download, icon: Icons.replay_rounded) 
             );
           case DownloadWidgetState.downloading:
             return CardWidget(
               name: widget.name, 
               state: state,
               progress: progress,
-              buttonLeft: ButtonWidget(onPressed: _cancel, icon: Icons.close_rounded), // clear_rounded
+              buttonLeft: ButtonWidget(onPressed: _cancel, icon: Icons.close_rounded),
               buttonRight: ButtonWidget(onPressed: _pause, icon: Icons.pause_rounded)
             );
           case DownloadWidgetState.paused:
@@ -77,13 +78,14 @@ class _DownloadItemState extends State<DownloadItem> {
       url: widget.url,
       // path: path,
       // manager: DownloadManager.instance,
+      // controller: DownloadWidgetControler(),
       builder: (context, controller, state, progress, error, request) {
         switch (state) {
           case DownloadWidgetState.initial:
             return CardWidget(
               name: widget.name, 
               state: state, 
-              buttonRight: ButtonWidget(onPressed: controller.download, icon: Icons.downloading_rounded) // download_rounded
+              buttonRight: ButtonWidget(onPressed: controller.download, icon: Icons.downloading_rounded)
             );
           case DownloadWidgetState.queued:
             return CardWidget(
@@ -92,18 +94,18 @@ class _DownloadItemState extends State<DownloadItem> {
               buttonLeft: ButtonWidget(onPressed: controller.cancel, icon: Icons.close_rounded),
             );
           case DownloadWidgetState.failed:
-            // showErrorBanner(context, error);
+            // _showErrorBanner(error);
             return CardWidget(
               name: widget.name, 
               state: state, 
-              buttonRight: ButtonWidget(onPressed: controller.download, icon: Icons.replay_rounded) // sync_rounded
+              buttonRight: ButtonWidget(onPressed: controller.download, icon: Icons.replay_rounded) 
             );
           case DownloadWidgetState.downloading:
             return CardWidget(
               name: widget.name, 
               state: state,
               progress: progress,
-              buttonLeft: ButtonWidget(onPressed: controller.cancel, icon: Icons.close_rounded), // clear_rounded
+              buttonLeft: ButtonWidget(onPressed: controller.cancel, icon: Icons.close_rounded), 
               buttonRight: ButtonWidget(onPressed: controller.pause, icon: Icons.pause_rounded)
             );
           case DownloadWidgetState.paused:
@@ -126,8 +128,9 @@ class _DownloadItemState extends State<DownloadItem> {
     );*/
   }
 
-  /*void showErrorBanner(BuildContext context, Object? error) {
-    if (error != null) {
+  void _showErrorBanner(Object? error) {
+    final context = DownloadList.scaffoldKey.currentState?.context;
+    if (error != null && context != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         final messenger = ScaffoldMessenger.of(context);
         messenger.showMaterialBanner(
@@ -139,7 +142,7 @@ class _DownloadItemState extends State<DownloadItem> {
         );
       });
     }
-  }*/
+  }
   
   String get path {
     final uri = Uri.parse(widget.url);
