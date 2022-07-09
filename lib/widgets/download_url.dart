@@ -4,10 +4,21 @@ import 'package:isolated_download_manager/download_manager.dart';
 
 part 'package:flutter_download_manager/types/download_controller.dart';
 
+// TODO 
+// Bug: when widget is disposed and reinitialed again it has no actual state event inside of request.events
+//      so it present initial state instead
+
 /// Builder function for each state of file downloading
 /// [DownloadRequest] stored and controlled internally, by providing the [DownloadWidgetController] interface
 class DownloadUrlWidget extends StatefulWidget {
-  const DownloadUrlWidget({ super.key, required this.builder, required this.url, this.path, this.controller, this.manager }) : super();
+  const DownloadUrlWidget({ 
+    super.key, 
+    required this.builder, 
+    required this.url, 
+    this.path, 
+    this.controller, 
+    this.manager 
+  }) : super();
   
   final Widget Function(
     BuildContext context, 
