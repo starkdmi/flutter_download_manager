@@ -1,5 +1,5 @@
 name: flutter_download_manager
-description: Flutter widgets to siplify usage of https://github.com/starkdmi/download_manager package
+description: Flutter widgets to simplify usage of https://github.com/starkdmi/download_manager package
 version: 1.0.0
 publish_to: 'none'
 
