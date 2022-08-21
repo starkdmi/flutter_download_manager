@@ -31,13 +31,14 @@ dependencies:
     sdk: flutter
 
   isolated_download_manager: 
-    path: ../../
+    path: /Users/starkdmi/Code/Languages/Dart/download_manager
     # git:
     #   url: https://github.com/starkdmi/download_manager
     #   ref: main
 
   flutter_download_manager:
-    path: /Users/starkdmi/Code/Languages/Dart/download_manager_flutter
+    path: ../../
+    # path: /Users/starkdmi/Code/Languages/Dart/download_manager_flutter
     # git:
     #   url: https://github.com/starkdmi/flutter_download_manager
     #   ref: main

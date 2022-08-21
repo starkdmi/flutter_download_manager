@@ -15,7 +15,8 @@ class Globals {
     "Ruby": "https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.2.tar.gz",
     "Scala": "https://github.com/lampepfl/dotty/releases/download/3.1.3/scala3-3.1.3.zip",
     "NodeJS": "https://nodejs.org/dist/v16.15.1/node-v16.15.1.pkg",
-    "HTML": "https://not.found/html.txt"
+    "HTML": "https://not.found/html.txt",
+    "AppWrite": "http://80.93.19.105/v1/storage/buckets/62d2cf77ddcb2ec5beb7/files/62d414715c3cdd12a58b/download?project=62d1cb9f57f67ad7b71c" // TODO BUG - ONLY PART DOWNLOADED AT ALL
   };
 
   static Future<void> init() async {
