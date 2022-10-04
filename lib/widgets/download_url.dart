@@ -16,6 +16,7 @@ class DownloadUrlWidget extends StatefulWidget {
       this.manager})
       : super();
 
+  /// Builder is used to build the UI based on current download state
   final Widget Function(
     BuildContext context,
     DownloadWidgetController controller,
@@ -25,9 +26,13 @@ class DownloadUrlWidget extends StatefulWidget {
     DownloadRequest? request,
   ) builder;
 
+  /// File url 
   final String url;
+  /// Destination file location
   final String? path;
+  /// Manager instanse, if not provided the default one is used
   final DownloadManager? manager;
+  /// Controller, if not provided the default one is used
   final DownloadWidgetController? controller;
 
   @override

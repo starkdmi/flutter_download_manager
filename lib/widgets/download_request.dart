@@ -9,8 +9,10 @@ class DownloadWidget extends StatelessWidget {
   const DownloadWidget({super.key, required this.builder, this.request})
       : super();
 
+  /// Builder is required to build the UI based on current download state
   final Widget Function(BuildContext context, DownloadWidgetState state,
       double? progress, Object? error) builder;
+  /// The download request 
   final DownloadRequest? request;
 
   @override
