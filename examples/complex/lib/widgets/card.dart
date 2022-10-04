@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_download_manager/download_manager_flutter.dart';
+import 'package:isolated_download_manager_flutter/isolated_download_manager_flutter.dart';
 import 'package:flutter_download_manager_example/widgets/button.dart';
 import 'package:flutter_download_manager_example/widgets/progress.dart';
 

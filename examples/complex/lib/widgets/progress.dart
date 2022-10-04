@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_download_manager/download_manager_flutter.dart';
+import 'package:isolated_download_manager_flutter/isolated_download_manager_flutter.dart';
 
 class ProgressWidget extends StatelessWidget {
   const ProgressWidget({ super.key, required this.state, this.progress }) : super();

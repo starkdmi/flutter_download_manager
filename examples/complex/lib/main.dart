@@ -24,6 +24,7 @@ class DemoApp extends StatelessWidget {
         "/": (context) => const Setup(),
         "/list": (context) => const DownloadList(),
       },
+      debugShowCheckedModeBanner: false,
     );
   }
 }
