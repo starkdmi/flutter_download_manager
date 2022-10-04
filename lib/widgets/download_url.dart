@@ -16,7 +16,7 @@ class DownloadUrlWidget extends StatefulWidget {
       this.manager})
       : super();
 
-  /// Builder is used to build the UI based on current download state
+  /// Builder is required to build the UI based on current download state
   final Widget Function(
     BuildContext context,
     DownloadWidgetController controller,
