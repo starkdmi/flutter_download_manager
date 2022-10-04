@@ -1,39 +1,38 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+Ready-to-use Flutter widgets to download files in isolates using [isolated_download_manager](https://pub.dev/packages/isolated_download_manager) package
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+## Preview
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Include latest version from [pub.dev](https://pub.dev/packages/isolated_download_manager_flutter) to `pubspec.yaml`
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+There are just two widgets - `DownloadWidget` and `DownloadUrlWidget`:
 
 ```dart
-const like = 'sample';
+// using DownloadRequest object
+DownloadWidget(
+  request: request, 
+  builder: (context, state, progress, error) {
+    // UI goes here 
+  }
+);
+
+// using just an url
+DownloadUrlWidget(
+  url: url, 
+  path: path, 
+  controller: controller, // optional
+  builder: (context, controller, state, progress, error, request) {
+    // UI goes here 
+  }
+);
 ```
+Examples source code available at [example's directory](example/)
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+For resumable downloads [download_task](https://pub.dev/packages/download_task) package is used
