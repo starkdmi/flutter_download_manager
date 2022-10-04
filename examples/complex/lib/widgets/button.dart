@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ButtonWidget extends StatelessWidget {
-  const ButtonWidget({ super.key, required this.icon, this.size, this.onPressed }) : super();
+  const ButtonWidget({super.key, required this.icon, this.size, this.onPressed})
+      : super();
   final IconData icon;
   final double? size;
   final void Function()? onPressed;
@@ -12,8 +13,7 @@ class ButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final primary = Theme.of(context).colorScheme.primary;
     return IconButton(
-      onPressed: onPressed, 
-      icon: Icon(icon, size: size ?? iconSize, color: primary)
-    );
+        onPressed: onPressed,
+        icon: Icon(icon, size: size ?? iconSize, color: primary));
   }
 }

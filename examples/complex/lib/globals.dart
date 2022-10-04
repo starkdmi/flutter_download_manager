@@ -9,11 +9,14 @@ class Globals {
   static int isolates = 3;
   static String directory = "/tmp/downloads";
   static Map<String, String> links = {
-    "Dart": "https://storage.googleapis.com/dart-archive/channels/stable/release/2.17.5/sdk/dartsdk-macos-arm64-release.zip",
+    "Dart":
+        "https://storage.googleapis.com/dart-archive/channels/stable/release/2.17.5/sdk/dartsdk-macos-arm64-release.zip",
     "Golang": "https://golang.org/dl/go1.19.1.src.tar.gz",
-    "Python": "https://www.python.org/ftp/python/3.10.5/python-3.10.5-macos11.pkg",
+    "Python":
+        "https://www.python.org/ftp/python/3.10.5/python-3.10.5-macos11.pkg",
     "Ruby": "https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.2.tar.gz",
-    "Scala": "https://github.com/lampepfl/dotty/releases/download/3.1.3/scala3-3.1.3.zip",
+    "Scala":
+        "https://github.com/lampepfl/dotty/releases/download/3.1.3/scala3-3.1.3.zip",
     "NodeJS": "https://nodejs.org/dist/v16.15.1/node-v16.15.1.pkg",
     "HTML": "https://not.found/html.txt",
   };
@@ -35,7 +38,7 @@ class Globals {
   }
 
   static Future<void> clean({removeDirectory = false}) async {
-    // remove files in default directory 
+    // remove files in default directory
     final dir = Directory(directory);
     if (await dir.exists()) {
       await for (final file in dir.list()) {

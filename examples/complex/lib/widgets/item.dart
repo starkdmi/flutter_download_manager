@@ -10,7 +10,8 @@ import 'package:open_file/open_file.dart';
 import 'dart:io' show File;
 
 class DownloadItem extends StatefulWidget {
-  const DownloadItem({ super.key, required this.name, required this.url }) : super();
+  const DownloadItem({super.key, required this.name, required this.url})
+      : super();
   final String name;
   final String url;
 
@@ -24,54 +25,57 @@ class _DownloadItemState extends State<DownloadItem> {
   @override
   Widget build(BuildContext context) {
     return DownloadWidget(
-      request: _request, 
-      builder: (context, state, progress, error) {
-        switch (state) {
-          case DownloadWidgetState.initial:
-            return CardWidget(
-              name: widget.name, 
-              state: state, 
-              buttonRight: ButtonWidget(onPressed: _download, icon: Icons.downloading_rounded)
-            );
-          case DownloadWidgetState.queued:
-            return CardWidget(
-              name: widget.name, 
-              state: state,
-              buttonLeft: ButtonWidget(onPressed: _cancel, icon: Icons.close_rounded),
-            );
-          case DownloadWidgetState.failed:
-            _showErrorBanner(error);
-            return CardWidget(
-              name: widget.name, 
-              state: state, 
-              buttonRight: ButtonWidget(onPressed: _download, icon: Icons.replay_rounded) 
-            );
-          case DownloadWidgetState.downloading:
-            return CardWidget(
-              name: widget.name, 
-              state: state,
-              progress: progress,
-              buttonLeft: ButtonWidget(onPressed: _cancel, icon: Icons.close_rounded),
-              buttonRight: ButtonWidget(onPressed: _pause, icon: Icons.pause_rounded)
-            );
-          case DownloadWidgetState.paused:
-            return CardWidget(
-              name: widget.name, 
-              state: state, 
-              progress: progress, 
-              buttonLeft: ButtonWidget(onPressed: _cancel, icon: Icons.close_rounded),
-              buttonRight: ButtonWidget(onPressed: _resume, icon: Icons.play_arrow_rounded)
-            );
-          case DownloadWidgetState.downloaded:
-            return CardWidget(
-              name: widget.name, 
-              state: state,
-              buttonLeft: ButtonWidget(onPressed: _open, icon: Icons.insert_drive_file_rounded),
-              buttonRight: ButtonWidget(onPressed: _delete, icon: Icons.delete_rounded)
-            );
-        }
-      }
-    );
+        request: _request,
+        builder: (context, state, progress, error) {
+          switch (state) {
+            case DownloadWidgetState.initial:
+              return CardWidget(
+                  name: widget.name,
+                  state: state,
+                  buttonRight: ButtonWidget(
+                      onPressed: _download, icon: Icons.downloading_rounded));
+            case DownloadWidgetState.queued:
+              return CardWidget(
+                name: widget.name,
+                state: state,
+                buttonLeft:
+                    ButtonWidget(onPressed: _cancel, icon: Icons.close_rounded),
+              );
+            case DownloadWidgetState.failed:
+              _showErrorBanner(error);
+              return CardWidget(
+                  name: widget.name,
+                  state: state,
+                  buttonRight: ButtonWidget(
+                      onPressed: _download, icon: Icons.replay_rounded));
+            case DownloadWidgetState.downloading:
+              return CardWidget(
+                  name: widget.name,
+                  state: state,
+                  progress: progress,
+                  buttonLeft: ButtonWidget(
+                      onPressed: _cancel, icon: Icons.close_rounded),
+                  buttonRight: ButtonWidget(
+                      onPressed: _pause, icon: Icons.pause_rounded));
+            case DownloadWidgetState.paused:
+              return CardWidget(
+                  name: widget.name,
+                  state: state,
+                  progress: progress,
+                  buttonLeft: ButtonWidget(
+                      onPressed: _cancel, icon: Icons.close_rounded),
+                  buttonRight: ButtonWidget(
+                      onPressed: _resume, icon: Icons.play_arrow_rounded));
+            case DownloadWidgetState.downloaded:
+              return CardWidget(
+                  name: widget.name,
+                  state: state,
+                  buttonLeft: ButtonWidget(
+                      onPressed: _open, icon: Icons.insert_drive_file_rounded),
+                  buttonRight: ButtonWidget(
+                      onPressed: _delete, icon: Icons.delete_rounded));
+          }
+        });
 
     // Using DownloadUrlWidget which stores request and provide controling interface
     /*return DownloadUrlWidget(
@@ -133,17 +137,21 @@ class _DownloadItemState extends State<DownloadItem> {
     if (error != null && context != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         final messenger = ScaffoldMessenger.of(context);
-        messenger.showMaterialBanner(
-          MaterialBanner(
-            content: Padding(padding: const EdgeInsets.symmetric(vertical: 8), child: Text(error.toString())), 
+        messenger.showMaterialBanner(MaterialBanner(
+            content: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Text(error.toString())),
             actions: [
-              IconButton(onPressed: () { messenger.clearMaterialBanners(); }, icon: const Icon(Icons.close_rounded))
-            ])
-        );
+              IconButton(
+                  onPressed: () {
+                    messenger.clearMaterialBanners();
+                  },
+                  icon: const Icon(Icons.close_rounded))
+            ]));
       });
     }
   }
-  
+
   String get path {
     final uri = Uri.parse(widget.url);
     final lastSegment = uri.pathSegments.last;
@@ -152,13 +160,14 @@ class _DownloadItemState extends State<DownloadItem> {
     return "${Globals.directory}/${widget.name}.$extension";
   }
 
-  void _download() => setState(() => _request = DownloadManager.instance.download(widget.url, path: path));
+  void _download() => setState(() =>
+      _request = DownloadManager.instance.download(widget.url, path: path));
   void _pause() => _request?.pause();
   void _resume() => _request?.resume();
   void _cancel() => _request?.cancel();
 
   void _open() => OpenFile.open(path);
-  
+
   Future<void> _delete() async {
     // delete file and reset request
     final file = File(path);

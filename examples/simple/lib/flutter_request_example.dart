@@ -8,14 +8,15 @@ void main() {
 }
 
 class ExampleApp extends StatefulWidget {
-  const ExampleApp({ super.key }) : super();
+  const ExampleApp({super.key}) : super();
 
-  @override 
+  @override
   State<ExampleApp> createState() => _ExampleAppState();
 }
 
 class _ExampleAppState extends State<ExampleApp> {
-  static const String url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+  static const String url =
+      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
   static const String path = "./BigBuckBunny.mp4";
 
   DownloadRequest? _request;
@@ -35,43 +36,46 @@ class _ExampleAppState extends State<ExampleApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("DownloadWidget"),
-          actions: [
-            IconButton(onPressed: _reset, icon: const Icon(Icons.replay_rounded))
-          ]
-        ),
-        body: Center(
-          child: DownloadWidget(
-            request: _request,
-            builder: (context, state, progress, error) {
-              switch (state) {
-                case DownloadWidgetState.initial:
-                  return IconButton(onPressed: _download, icon: const Icon(Icons.download_rounded));
-                case DownloadWidgetState.queued:
-                case DownloadWidgetState.downloading:
-                  return Stack(alignment: Alignment.center, children: [
-                    CircularProgressIndicator(value: 1.0, color: Colors.grey.withOpacity(0.2)),
-                    CircularProgressIndicator(value: progress),
-                    IconButton(onPressed: _cancel, icon: const Icon(Icons.close_rounded)),
-                  ]);
-                case DownloadWidgetState.failed:
-                  return IconButton(onPressed: _download, icon: const Icon(Icons.restart_alt_rounded));
-                case DownloadWidgetState.downloaded:
-                  return const Icon(Icons.done_rounded);
-                default:
-                  return const SizedBox();
-              }
-            }
-          )
-        )
-      )
-    );
+        home: Scaffold(
+            appBar: AppBar(title: const Text("DownloadWidget"), actions: [
+              IconButton(
+                  onPressed: _reset, icon: const Icon(Icons.replay_rounded))
+            ]),
+            body: Center(
+                child: DownloadWidget(
+                    request: _request,
+                    builder: (context, state, progress, error) {
+                      switch (state) {
+                        case DownloadWidgetState.initial:
+                          return IconButton(
+                              onPressed: _download,
+                              icon: const Icon(Icons.download_rounded));
+                        case DownloadWidgetState.queued:
+                        case DownloadWidgetState.downloading:
+                          return Stack(alignment: Alignment.center, children: [
+                            CircularProgressIndicator(
+                                value: 1.0,
+                                color: Colors.grey.withOpacity(0.2)),
+                            CircularProgressIndicator(value: progress),
+                            IconButton(
+                                onPressed: _cancel,
+                                icon: const Icon(Icons.close_rounded)),
+                          ]);
+                        case DownloadWidgetState.failed:
+                          return IconButton(
+                              onPressed: _download,
+                              icon: const Icon(Icons.restart_alt_rounded));
+                        case DownloadWidgetState.downloaded:
+                          return const Icon(Icons.done_rounded);
+                        default:
+                          return const SizedBox();
+                      }
+                    }))));
   }
 
   void _download() {
-    setState(() => _request = DownloadManager.instance.download(url, path: path));
+    setState(
+        () => _request = DownloadManager.instance.download(url, path: path));
   }
 
   void _cancel() {

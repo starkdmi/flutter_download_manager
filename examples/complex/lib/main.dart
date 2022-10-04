@@ -10,7 +10,7 @@ void main() async {
 }
 
 class DemoApp extends StatelessWidget {
-  const DemoApp({ super.key }) : super();
+  const DemoApp({super.key}) : super();
 
   @override
   Widget build(BuildContext context) {

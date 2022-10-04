@@ -1,4 +1,8 @@
-
 enum DownloadWidgetState {
-  initial, queued, failed, downloading, paused, downloaded
+  initial,
+  queued,
+  failed,
+  downloading,
+  paused,
+  downloaded
 }
