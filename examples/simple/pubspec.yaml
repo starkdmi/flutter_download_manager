@@ -10,17 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
 
-  isolated_download_manager: 
+  isolated_download_manager: 1.0.0
+  isolated_download_manager_flutter:
     path: ../../
-    # git:
-    #   url: https://github.com/starkdmi/download_manager
-    #   ref: main
-
-  flutter_download_manager:
-    path: /Users/starkdmi/Code/Languages/Dart/download_manager_flutter
-    # git:
-    #   url: https://github.com/starkdmi/flutter_download_manager
-    #   ref: main
 
 dev_dependencies:
   flutter_test:

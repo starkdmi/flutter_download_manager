@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_download_manager/download_manager_flutter.dart';
-import 'package:isolated_download_manager/download_manager.dart';
+import 'package:isolated_download_manager_flutter/isolated_download_manager_flutter.dart';
+import 'package:isolated_download_manager/isolated_download_manager.dart';
 import 'dart:io' show File;
 
 void main() {
@@ -16,7 +16,7 @@ class ExampleApp extends StatefulWidget {
 
 class _ExampleAppState extends State<ExampleApp> {
   static const String url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
-  static const String path = "/Users/starkdmi/Downloads/test/BigBuckBunny.mp4";
+  static const String path = "./BigBuckBunny.mp4";
 
   // controller isn't required, but used to access it outside of widget builder
   final _controller = DownloadWidgetController();
