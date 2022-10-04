@@ -1,4 +1,3 @@
-
 /// State used by UI to represent the current download point
 enum DownloadWidgetState {
   initial,

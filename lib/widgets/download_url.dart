@@ -26,12 +26,15 @@ class DownloadUrlWidget extends StatefulWidget {
     DownloadRequest? request,
   ) builder;
 
-  /// File url 
+  /// File url
   final String url;
+
   /// Destination file location
   final String? path;
+
   /// Manager instanse, if not provided the default one is used
   final DownloadManager? manager;
+
   /// Controller, if not provided the default one is used
   final DownloadWidgetController? controller;
 
