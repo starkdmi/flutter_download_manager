@@ -20,7 +20,7 @@ There are just two widgets:
     }
   )
   ```
-  [Full example code](example/simple/flutter_request_example.dart)
+  [Full example code](example/simple/lib/flutter_request_example.dart)
 
 - **DownloadUrlWidget** - simplified version where `DownloadRequest` is stored internally (accessed via builder).
   ```dart
@@ -35,6 +35,6 @@ There are just two widgets:
   );
   ```
   The controller allows to access task outside of widget builder's body.
-  [Full example code](example/simple/flutter_url_example.dart)
+  [Full example code](example/simple/lib/flutter_url_example.dart)
 
 Feature-rich example available at [complex example directory](example/complex)
