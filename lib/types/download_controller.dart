@@ -1,4 +1,4 @@
-part of 'package:flutter_download_manager/widgets/download_url.dart';
+part of 'package:isolated_download_manager_flutter/widgets/download_url.dart';
 
 class DownloadWidgetController {
   DownloadWidgetController();

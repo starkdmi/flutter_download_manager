@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_download_manager/types/download_state.dart';
-import 'package:isolated_download_manager/download_manager.dart';
+import 'package:isolated_download_manager_flutter/types/download_state.dart';
+import 'package:isolated_download_manager/isolated_download_manager.dart';
 
-part 'package:flutter_download_manager/types/download_controller.dart';
-
-// TODO 
-// Bug: when widget is disposed and reinitialed again it has no actual state event inside of request.events
-//      so it present initial state instead
+part 'package:isolated_download_manager_flutter/types/download_controller.dart';
 
 /// Builder function for each state of file downloading
 /// [DownloadRequest] stored and controlled internally, by providing the [DownloadWidgetController] interface

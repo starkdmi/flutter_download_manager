@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_download_manager/types/download_state.dart';
-import 'package:isolated_download_manager/download_manager.dart';
+import 'package:isolated_download_manager_flutter/types/download_state.dart';
+import 'package:isolated_download_manager/isolated_download_manager.dart';
 
 /// Builder function for each state of file downloading
 /// You take control of [DownloadRequest] storing and controlling the download process
