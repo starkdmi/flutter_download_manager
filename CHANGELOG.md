@@ -11,3 +11,4 @@
 ## 1.0.2
 
 * Fix github example links on pub.dev
+* Update to latest isolated_download_manager version

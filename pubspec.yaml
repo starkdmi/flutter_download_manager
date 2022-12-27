@@ -1,7 +1,7 @@
 name: isolated_download_manager_flutter
 description: Flutter ready-to-use widgets to simplify usage of isolated_download_manager package
 repository: https://github.com/starkdmi/flutter_download_manager
-version: 1.0.1
+version: 1.0.2
 
 environment:
   sdk: ">=2.17.0 <3.0.0"
@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  isolated_download_manager: ^1.0.1
+  isolated_download_manager: ^1.0.2
 
 dev_dependencies:
   flutter_test:
