@@ -12,3 +12,7 @@
 
 * Fix github example links on pub.dev
 * Update to latest isolated_download_manager version
+
+## 1.0.3
+
+* Update dependencies for the Dart 3 support
