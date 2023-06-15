@@ -24,8 +24,10 @@ class _DownloadListState extends State<DownloadList> {
     super.initState();
 
     // Initialize
-    DownloadManager.instance
-        .init(isolates: Globals.isolates, directory: Globals.directory);
+    DownloadManager.instance.init(
+        isolates: Globals.isolates,
+        directory: Globals.directory,
+        safeRange: false);
   }
 
   @override
